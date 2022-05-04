@@ -1,0 +1,46 @@
+<h1 class="mt-5">Add a new product</h1>
+<form action="" [formGroup]="myForm" >
+
+  <div class="row g-3 align-items-center mb-2">
+    <div class="col-auto">
+      <label class="col-form-label" >Name</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" class="from-control"  formControlName="name">
+    </div>
+    <div class="col-auto">
+      <span
+        [valid]="error('name')"
+        ErrorMsg
+        [color]="color"
+        [msg]="text1"
+      >
+      </span>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-primary" (click)="changeMessage()">Save</button>
+        <button class="btn btn-primary" (click)="changeColor()">Change color</button>
+
+      </div>
+
+
+    </div>
+  </div>
+</form>
+<h3
+>Form</h3>
+<pre>{{myForm.valid}}</pre>
+<pre>{{myForm.value|json}}</pre>
+
+<!-- custom directives -->
+<div class="row"
+  *customIf="myForm.valid"
+  >
+  <div class="col">
+    <div class="alert alert-primary">
+      Ok
+    </div>
+  </div>
+</div>
+
